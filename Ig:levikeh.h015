@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Szomorodj meg</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #3b5998;
+        }
+
+        .menu-item {
+            background-color: #ffffff;
+            color: #333;
+            border: 1px solid #ddd;
+            margin: 10px;
+            padding: 20px 40px;
+            border-radius: 10px;
+            font-size: 18px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .menu-item:hover {
+            background-color: #365899;
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        /* Pop-up stílusok */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            width: 300px;
+        }
+
+        .popup-button {
+            background-color: #3b5998;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .popup-button:hover {
+            background-color: #365899;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigációs menü -->
+    <div class="menu">
+        <div class="menu-item" onclick="showPopup('oldal1.html')">Menü 1</div>
+        <div class="menu-item" onclick="showFacebookPage()">Menü 2</div>
+        <div class="menu-item" onclick="showStalkerAlert()">Menü 3</div>
+    </div>
+
+    <!-- Pop-up ablak -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <h2>Oldalra irányítás...</h2>
+            <p>Ha akarod tudni mi van itt menj a <i>Tovább</i> gombra.:</p>
+            <button id="popup-button" class="popup-button">Tovább</button>
+        </div>
+    </div>
+
+    <script>
+        // Pop-up megjelenítése
+        function showPopup(page) {
+            // Megjelenítjük a pop-up ablakot
+            const popup = document.getElementById('popup');
+            popup.style.display = 'flex';
+
+            // A gomb kattintásra átirányítja a felhasználót az Instagram linkre
+            const popupButton = document.getElementById('popup-button');
+            popupButton.onclick = function() {
+                window.location.href = "https://www.instagram.com/levike.h015/"; // Instagram profil link
+            };
+        }
+
+        // Menü 2: Facebook oldalra irányítás (nyilvános)
+        function showFacebookPage() {
+            window.location.href = "https://www.facebook.com/levente.csaszar.96#"; // Facebook profil link, ha nyilvános
+        }
+
+        // Menü 3: Figyelmeztető üzenet
+        function showStalkerAlert() {
+            alert("¿¿¿¿TE MI A GECIT STALKOLSZ ENGEM????");
+        }
+
+        // Ha a felhasználó kívül kattint a pop-up ablakon, bezárjuk azt
+        window.onclick = function(event) {
+            const popup = document.getElementById('popup');
+            if (event.target === popup) {
+                popup.style.display = 'none';
+            }
+        };
+    </script>
+
+</body>
+</html>
